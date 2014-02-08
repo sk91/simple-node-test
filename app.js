@@ -11,6 +11,15 @@ var http = require('http');
 var path = require('path');
 var db = require('mongojs')('embrasse',['users']);
 
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy
+  , auth = require('./lib/auth');
+
+
+//init passport
+passport.use(new LocalStrategy(auth.config,auth.authanticate));
+
+
 
 //init models
 require('./models/users/user').init(db);
@@ -25,10 +34,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
 app.use(express.logger('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.cookieParser());
+app.use(express.bodyParser());
+app.use(express.session({ secret: 'Super duber embrasse secret' }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 // development only
 if ('development' == app.get('env')) {

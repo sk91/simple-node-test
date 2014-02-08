@@ -20,10 +20,8 @@ var User = module.expots = {
       return true;
     },
 
-    toJson:function(user){
-      var result = _.extend({},user);
-      delete result.password;
-      return result;
+    validatePassword: function(user, password){
+
     }
 
 }
