@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .login
+    h1 Login
+    input(type="email",placeholder="email")
+    input(type="password",placeholder="password")
+    input(type="button", value="Log-in")
