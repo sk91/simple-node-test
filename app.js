@@ -9,6 +9,7 @@ var user = require('./routes/user');
 var session = require('./routes/session');
 var http = require('http');
 var path = require('path');
+var db = require('mongojs')('embrasse',['users']);
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
 
 app.get('/', routes.index);
 
