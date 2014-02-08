@@ -28,7 +28,7 @@ angular.module('embraase')
         $scope.confirm_password_error = false;
       }
 
-      if(!$scope.password_error  && !$scope.email_error){
+      if(!$scope.password_error  && !$scope.email_error && !confirm_password_error){
         $http.post('/users',{
             email:$scope.email,
             password:$scope.password
