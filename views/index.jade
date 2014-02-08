@@ -1,28 +1,30 @@
 extends layout
 
 block content
-    .login
-        h1 Log in
-        input(type="email",placeholder="Email")
-        input(type="password",placeholder="Password")
-        input(type="button", value="Log-in")
+    script(type="text/ng-template",id="login.html")
+        .login
+            h1 Log in
+            input(type="email",placeholder="Email")
+            input(type="password",placeholder="Password")
+            input(type="button", value="Log-in")
 
+    script(type="text/ng-template",id="sign_up.html")
+        .signup
+            h1 Sign up
+            input(type="email",placeholder="Email")
+            input(type="password",placeholder="Password")
+            input(type="password",placeholder="Confirm password")
+            input(type="button", value="Sign-up")
 
-    .signin
-        h1 Sign in
-        input(type="email",placeholder="Email")
-        input(type="password",placeholder="Password")
-        input(type="password",placeholder="Confirm password")
-        input(type="button", value="Sign-in")
+    script(type="text/ng-template",id="user_profile.html")
+        .user-profile
+            h1 User profile
+            p
+                span Email:
+                span Email value
+            p
+                span Country:
+                span Country value
 
-    .user-profile
-        h1 User profile
-        p
-            span Email:
-            span Email value
-        p
-            span Country:
-            span Country value
-        
 
 
