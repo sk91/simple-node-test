@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('embraase')
-  .controller('LoginCtrl', function ($scope) {
+  .controller('LoginCtrl', function ($scope,$http) {
     $scope.email = '';
     $scope.email_error = false;
     $scope.password = '';
@@ -14,10 +14,19 @@ angular.module('embraase')
         $scope.email_error = false;
       }
 
-      if(!$scope.password || $scope.password.length < 5){
+      if(!$scope.password || $scope.password.length < 2){
         $scope.password_error = true;
       }else{
         $scope.password_error = false;
+      }
+
+      if(!$scope.password_error  && !$scope.email_error){
+        $http.post('/session',{
+            email:$scope.email,
+            password:$scope.password
+        }).success(function(){
+              $location.path('/user_profile');
+          });
       }
     }
   });

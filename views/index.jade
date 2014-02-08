@@ -19,20 +19,23 @@ html
     script(type="text/ng-template",id="sign_up.html")
       .signup
         h1 Sign up
-        input(type="email",placeholder="Email")
-        input(type="password",placeholder="Password")
-        input(type="password",placeholder="Confirm password")
-        input(type="button", value="Sign-up")
+        input(type="email",placeholder="Email","ng-model" = 'email')
+        span.error(ng-show = 'email_error') Incorrect email
+        input(type="password",placeholder="Password","ng-model" = 'password')
+        span.error(ng-show = 'password_error') Incorrect password
+        input(type="password",placeholder="Confirm password" , "ng-model" = 'password_confirm')
+        span.error(ng-show = 'confirm_password_error') Incorrect confirm password
+        input(type="button", value="Sign-up", ng-click = 'signup()')
 
     script(type="text/ng-template",id="user_profile.html")
       .user-profile
         h1 User profile
         p
             span Email:
-            span Email value
+            span {{user.email}}
         p
             span Country:
-            span Country value
+            span {{user.country}}
 
 
     script(src='components/angular/angular.js')
