@@ -1,30 +1,50 @@
-extends layout
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body(ng-app='embraase')
 
-block content
+    div(ng-view)
+
     script(type="text/ng-template",id="login.html")
-        .login
-            h1 Log in
-            input(type="email",placeholder="Email")
-            input(type="password",placeholder="Password")
-            input(type="button", value="Log-in")
+      .login
+        h1 Log in
+        input(type="email",placeholder="Email")
+        input(type="password",placeholder="Password")
+        input(type="button", value="Log-in")
 
     script(type="text/ng-template",id="sign_up.html")
-        .signup
-            h1 Sign up
-            input(type="email",placeholder="Email")
-            input(type="password",placeholder="Password")
-            input(type="password",placeholder="Confirm password")
-            input(type="button", value="Sign-up")
+      .signup
+        h1 Sign up
+        input(type="email",placeholder="Email")
+        input(type="password",placeholder="Password")
+        input(type="password",placeholder="Confirm password")
+        input(type="button", value="Sign-up")
 
     script(type="text/ng-template",id="user_profile.html")
-        .user-profile
-            h1 User profile
-            p
-                span Email:
-                span Email value
-            p
-                span Country:
-                span Country value
+      .user-profile
+        h1 User profile
+        p
+            span Email:
+            span Email value
+        p
+            span Country:
+            span Country value
+
+
+    script(src='components/angular/angular.js')
+    script(src='components/angular-route/angular-route.js')
+
+
+    script(src="javascripts/main.js")
+    script(src="javascripts/controllers/login.js")
+    script(src="javascripts/controllers/sign_up.js")
+    script(src="javascripts/controllers/user_profile.js")
+
+
+
+
 
 
 
