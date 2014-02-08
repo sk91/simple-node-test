@@ -2,7 +2,7 @@ doctype html
 html
   head
     title= title
-
+    meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
@@ -53,14 +53,15 @@ html
             input.btn.btn-info.btn-block(type="button", value="Sign-up", ng-click = 'signup()')
 
     script(type="text/ng-template",id="user_profile.html")
-      .user-profile
-        h1 User profile
-        p
-            span Email:
-            span {{user.email}}
-        p
-            span Country:
-            span {{user.country}}
+        .panel-heading
+            h3.panel-title User profile
+        .panel-body
+            p
+                span Email:
+                span {{user.email}}
+            P
+                span Country:
+                span {{user.country}}
 
     script(src='components/jquery/jquery.js')
     script(src='components/angular/angular.js')
