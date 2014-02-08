@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('embraase')
-  .controller('LoginCtrl', function ($scope,$http) {
+  .controller('LoginCtrl', function ($scope,$http,$location) {
     $scope.email = '';
     $scope.email_error = false;
     $scope.password = '';
