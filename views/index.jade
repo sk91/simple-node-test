@@ -2,32 +2,55 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body(ng-app='embraase', ng-controller="MainCtrl")
 
-    div(ng-view)
+    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body(ng-app='embraase', ng-controller="MainCtrl")
+    .container
+    .row.centered-form
+        .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+          .panel.panel-default(ng-view)
+
+
 
     script(type="text/ng-template",id="login.html")
-      .login
-        h1 Log in
-            a(href="/#/sign_up") (Sign up)
-        input(type="text",placeholder="Email", "ng-model" = 'email')
-        span.error(ng-show = 'email_error') Incorrect email
-        input(type="password",placeholder="Password" , "ng-model" = 'password')
-        span.error(ng-show = 'password_error') Incorrect password
-        input(type="button", value="Log-in", ng-click = 'login()')
+        .panel-heading
+            h3.panel-title Log in 
+                a(href="/#/sign_up")
+                    small (Sign up)
+        .panel-body
+            .row
+                .form-group
+                    input.form-control.input-sm(type="text",placeholder="Email", "ng-model" = 'email')
+                    span.error(ng-show = 'email_error') Incorrect email
+            .row
+                .form-group
+                    input.form-control.input-sm(type="password",placeholder="Password" , "ng-model" = 'password')
+                    span.error(ng-show = 'password_error') Incorrect password
+            input.btn.btn-info.btn-block(type="button", value="Log-in", ng-click = 'login()')
 
     script(type="text/ng-template",id="sign_up.html")
-      .signup
-        h1 Sign up
-            a(href="/#/login") (Login)
-        input(type="email",placeholder="Email","ng-model" = 'email')
-        span.error(ng-show = 'email_error') Incorrect email
-        input(type="password",placeholder="Password","ng-model" = 'password')
-        span.error(ng-show = 'password_error') Incorrect password
-        input(type="password",placeholder="Confirm password" , "ng-model" = 'password_confirm')
-        span.error(ng-show = 'confirm_password_error') Incorrect confirm password
-        input(type="button", value="Sign-up", ng-click = 'signup()')
+
+        .panel-heading
+            h3.panel-title Sign up 
+                a(href="/#/login") 
+                    small (Login)
+        .panel-body
+            .row
+                .form-group
+                    input.form-control.input-sm(type="email",placeholder="Email","ng-model" = 'email')
+                    span.error(ng-show = 'email_error') Incorrect email
+            .row
+                .form-group
+                    input.form-control.input-sm(type="password",placeholder="Password","ng-model" = 'password')
+                    span.error(ng-show = 'password_error') Incorrect password
+            .row
+                .form-group
+                    input.form-control.input-sm(type="password",placeholder="Confirm password" , "ng-model" = 'password_confirm')
+                    span.error(ng-show = 'confirm_password_error') Incorrect confirm password
+
+            input.btn.btn-info.btn-block(type="button", value="Sign-up", ng-click = 'signup()')
 
     script(type="text/ng-template",id="user_profile.html")
       .user-profile
@@ -39,7 +62,7 @@ html
             span Country:
             span {{user.country}}
 
-
+    script(src='components/jquery/jquery.js')
     script(src='components/angular/angular.js')
     script(src='components/angular-route/angular-route.js')
 
