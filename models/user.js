@@ -62,6 +62,11 @@ var User = module.exports = {
 
     createHash:function(password, cb){
       bcrypt.hash(password, 5 , cb);
+    },
+
+    toObject: function(user){
+      var obj = _.extend({},user);
+      delete obj.password;
     }
 
 

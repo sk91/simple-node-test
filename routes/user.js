@@ -1,5 +1,6 @@
 var Users = require('../models/user.js')
-  , geoip = require('geoip-lite');
+  , geoip = require('geoip-lite')
+  , mongojs = require('mongojs');
 /*
  * GET users listing.
  */
@@ -16,14 +17,24 @@ exports.create = function(req, res){
     user.country = geo.country;
   }
 
-  Users.create(user, function(err, user){
-    if(err) return res.send({error:err},400);
-    delete user.password;
-    res.send(user);
+  Users.create(user, 
+    function createCb(err, user){
+      if(err) return res.send({error:err},400);
+      
+      res.send(Users.toObject(user));
   })
 
 };
 
 exports.get = function(req,res){
-  res.send("respond with a resource");
+  var id = req.params.id;
+
+  Users.findOne({'_id':mongojs.ObjectId(id)}, function findCb(err, user){
+    if(err) return res.send({error:err});
+    console.log(user);
+    if(!user) return res.send({error:"not found"},404);
+
+    
+    res.send(Users.toObject(user));
+  })
 }
