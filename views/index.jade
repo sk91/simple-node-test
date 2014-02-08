@@ -3,16 +3,18 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body(ng-app='embraase')
+  body(ng-app='embraase', ng-controller="MainCtrl")
 
     div(ng-view)
 
     script(type="text/ng-template",id="login.html")
       .login
         h1 Log in
-        input(type="email",placeholder="Email")
-        input(type="password",placeholder="Password")
-        input(type="button", value="Log-in")
+        input(type="text",placeholder="Email", "ng-model" = 'email')
+        span.error(ng-show = 'email_error') Incorrect email
+        input(type="password",placeholder="Password" , "ng-model" = 'password')
+        span.error(ng-show = 'password_error') Incorrect password
+        input(type="button", value="Log-in", ng-click = 'login()')
 
     script(type="text/ng-template",id="sign_up.html")
       .signup
@@ -41,6 +43,7 @@ html
     script(src="javascripts/controllers/login.js")
     script(src="javascripts/controllers/sign_up.js")
     script(src="javascripts/controllers/user_profile.js")
+    script(src="javascripts/controllers/main.js")
 
 
 

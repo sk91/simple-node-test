@@ -40,7 +40,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.cookieParser());
 app.use(express.bodyParser());
-app.use(express.session({ secret: 'Super duber embrasse secret' }));
+app.use(express.session({ secret: 'Super duper embrasse secret' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(app.router);
