@@ -11,6 +11,12 @@ var http = require('http');
 var path = require('path');
 var db = require('mongojs')('embrasse',['users']);
 
+
+//init models
+require('./models/users/user').init(db);
+
+
+
 var app = express();
 
 // all environments

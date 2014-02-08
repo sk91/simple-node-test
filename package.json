@@ -9,6 +9,9 @@
     "express": "3.4.4",
     "jade": "*",
     "bower": "~1.2.8",
-    "mongojs": "~0.10.0"
+    "mongojs": "~0.10.0",
+    "lodash": "~2.4.1",
+    "passport-local": "~0.1.6",
+    "passport": "~0.2.0"
   }
 }
