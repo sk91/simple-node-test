@@ -1,14 +1,19 @@
+var Users = require('../models/user');
+
 
 exports.get = function(req,res){
-  res.send("response");
+  if (!req.user) return res.send({'logout':true});
+
+  res.send(Users.toObject(req.user));
 };
 
 
 exports.create = function(req,res){
-  res.send("response");
+  res.send(Users.toObject(req.user));
 };
 
 
 exports.delete = function(req,res){
-  res.send("response");
+  req.logout();
+  res.send({'logout':true});
 }

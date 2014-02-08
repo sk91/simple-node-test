@@ -1,5 +1,6 @@
 var _= require("lodash")
-  , bcrypt = require('bcrypt');
+  , bcrypt = require('bcrypt')
+  , mongojs = require('mongojs');
 
 var User = module.exports = {
 
@@ -11,6 +12,10 @@ var User = module.exports = {
 
     findOne:function(params,cb){
       this._db.users.findOne(params,cb);
+    },
+
+    findById: function(id, cb){
+      this.findOne({'_id':mongojs.ObjectId(id)},cb);
     },
 
     create: function(user,cb){
@@ -67,6 +72,7 @@ var User = module.exports = {
     toObject: function(user){
       var obj = _.extend({},user);
       delete obj.password;
+      return obj;
     }
 
 

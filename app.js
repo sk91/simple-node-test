@@ -18,7 +18,8 @@ var passport = require('passport')
 
 //init passport
 passport.use(new LocalStrategy(auth.config,auth.authanticate));
-
+passport.serializeUser(auth.serialize);
+passport.deserializeUser(auth.deserialize);
 
 
 //init models
