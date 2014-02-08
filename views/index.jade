@@ -10,6 +10,7 @@ html
     script(type="text/ng-template",id="login.html")
       .login
         h1 Log in
+            a(href="/#/sign_up") (Sign up)
         input(type="text",placeholder="Email", "ng-model" = 'email')
         span.error(ng-show = 'email_error') Incorrect email
         input(type="password",placeholder="Password" , "ng-model" = 'password')
@@ -19,6 +20,7 @@ html
     script(type="text/ng-template",id="sign_up.html")
       .signup
         h1 Sign up
+            a(href="/#/login") (Login)
         input(type="email",placeholder="Email","ng-model" = 'email')
         span.error(ng-show = 'email_error') Incorrect email
         input(type="password",placeholder="Password","ng-model" = 'password')
