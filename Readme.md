@@ -2,6 +2,11 @@ Embraase test
 ==============
 
 
+Requirements
+------------
+You should have mongodb installed and node installed.
+For remote mongo db you can start with MONGOHG_URL env var defined with your connection string.
+
 Install:
 --------
 
