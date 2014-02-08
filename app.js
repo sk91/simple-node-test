@@ -22,7 +22,7 @@ passport.use(new LocalStrategy(auth.config,auth.authanticate));
 
 
 //init models
-require('./models/users/user').init(db);
+require('./models/user').init(db);
 
 
 
@@ -57,7 +57,7 @@ app.post('/users', user.create);
 app.get('/users/:id',user.get);
 
 app.get('/session',session.get);
-app.post('/session',session.create);
+app.post('/session', passport.authenticate('local') ,session.create);
 app.delete('/session',session.delete);
 
 

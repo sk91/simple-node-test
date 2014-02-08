@@ -1,7 +1,7 @@
 var _= require("lodash")
   , bcrypt = require('bcrypt');
 
-var User = module.expots = {
+var User = module.exports = {
 
     _db: null,
 
@@ -48,7 +48,7 @@ var User = module.expots = {
       }
 
       if(!user.password){
-        return cb('invalid password'));
+        return cb('invalid password');
       }
 
       return cb(null,user);
