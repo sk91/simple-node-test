@@ -9,7 +9,7 @@ var user = require('./routes/user');
 var session = require('./routes/session');
 var http = require('http');
 var path = require('path');
-var db = require('mongojs')('embrasse',['users']);
+var db = require('mongojs')(process.env.MONGOHQ_URL||'embrasse',['users']);
 
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
