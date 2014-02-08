@@ -10,10 +10,14 @@ exports.create = function(req, res){
 
   user.email = req.body.email;
   user.password = req.body.password;
-  geo = geoip.lookup(req.ip);
 
+
+  geo = geoip.lookup(req.headers['x-forwarded-for'] || req.connection.remoteAddress);
+  console.log(geo);
   if(geo && geo.country){
     user.country = geo.country;
+  }else{
+    user.country = "unknown";
   }
 
   Users.create(user, 
@@ -30,7 +34,7 @@ exports.get = function(req,res){
 
   Users.findById(id, function findCb(err, user){
     if(err) return res.send({error:err});
-    console.log(user);
+
     if(!user) return res.send({error:"not found"},404);
 
     
