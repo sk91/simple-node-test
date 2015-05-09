@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('embraase')
+angular.module('simple-node-test')
   .controller('SignUpCtrl', function ($scope,$http,$location) {
     $scope.email = '';
     $scope.email_error = false;

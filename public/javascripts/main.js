@@ -1,7 +1,7 @@
 (function(angular){
   'use strict';
 
-  angular.module('embraase', [
+  angular.module('simple-node-test', [
     'ngRoute'
   ]).config(function ($routeProvider) {
     $routeProvider

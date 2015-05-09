@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('embraase')
+angular.module('simple-node-test')
   .controller('UserProfileCtrl', function ($scope,$http,$location) {
     $scope.user = $http.get('session').success(function(data){
         if('logout' in data){

@@ -6,7 +6,7 @@ html
     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-  body(ng-app='embraase', ng-controller="MainCtrl")
+  body(ng-app='simple-node-test', ng-controller="MainCtrl")
     .container
     .row.centered-form
         .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
@@ -16,7 +16,7 @@ html
 
     script(type="text/ng-template",id="login.html")
         .panel-heading
-            h3.panel-title Log in 
+            h3.panel-title Log in
                 a(href="/#/sign_up")
                     small (Sign up)
         .panel-body
@@ -33,8 +33,8 @@ html
     script(type="text/ng-template",id="sign_up.html")
 
         .panel-heading
-            h3.panel-title Sign up 
-                a(href="/#/login") 
+            h3.panel-title Sign up
+                a(href="/#/login")
                     small (Login)
         .panel-body
             .row

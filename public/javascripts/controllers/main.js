@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('embraase')
+angular.module('simple-node-test')
   .controller('MainCtrl', function ($scope) {
 
   });
 'use strict';
 
-angular.module('embraase')
+angular.module('simple-node-test')
   .controller('MainCtrl', function ($scope) {
 
   });
