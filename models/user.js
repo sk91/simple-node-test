@@ -1,5 +1,5 @@
 var _= require("lodash")
-  , bcrypt = require('bcrypt')
+  , bcrypt = require('bcrypt-nodejs')
   , mongojs = require('mongojs');
 
 var User = module.exports = {
@@ -23,8 +23,7 @@ var User = module.exports = {
 
       function validateCb(err){
         if(err) return cb(err);
-
-        this.createHash(user.password,hashCreatedCb.bind(this));  
+        this.createHash(user.password,hashCreatedCb.bind(this));
       }
 
       function hashCreatedCb(err,password){
@@ -35,7 +34,9 @@ var User = module.exports = {
       }
 
       function userCreatedCb(err, user){
-        if(err) return cb(err);
+        if(err) {
+          return cb(err);
+        }
 
         if(!user){
           return cb("not found");
@@ -59,14 +60,15 @@ var User = module.exports = {
       return cb(null,user);
     },
 
-    
+
 
     validatePassword: function(user, password,cb){
       bcrypt.compare(password, user.password, cb);
     },
 
     createHash:function(password, cb){
-      bcrypt.hash(password, 5 , cb);
+      var salt = bcrypt.genSaltSync(5)
+      bcrypt.hash(password, salt , null, cb);
     },
 
     toObject: function(user){
